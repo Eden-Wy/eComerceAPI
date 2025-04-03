@@ -4,6 +4,8 @@ import { config } from "dotenv";
 import { errorHandler } from "./utils/errorHandler.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
+import categoryRoutes from "./routes/categoryRoutes.js";
 
 config();
 
@@ -18,6 +20,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/users", userRoutes);
+app.use("/products", productRoutes);
+app.use("/categories", categoryRoutes);
 app.use("/orders", orderRoutes);
 
 app.use(errorHandler);
