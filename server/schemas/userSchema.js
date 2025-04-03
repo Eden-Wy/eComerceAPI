@@ -25,7 +25,7 @@ const User = sequelize.define(
           isEmail: true,
         },
       },
-      password: {
+      user_password: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -37,13 +37,14 @@ const User = sequelize.define(
   },
   {
     tableName: "user",
-    timestamps: true,
-    createdAt: "created_at",
-    updatedAt: "updated_at",
+    timestamps: false,
     underscored: true,
   }
 );
-
 sequelize.sync();
+// sequelize
+//   .sync({ force: true })
+//   .then(() => console.log("✅ Database synced (force: true)"))
+//   .catch((err) => console.error("❌ Sync failed:", err));
 
 export default User;
