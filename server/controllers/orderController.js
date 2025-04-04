@@ -19,12 +19,12 @@ export const createOrder = async (req, res, next) => {
 export const getAllOrders = async (req, res, next) => {
   try {
     const orders = await Order.findAll();
-    const productArr = [];
-    const x = orders.order_products.map(async (e) => {
-      const y = await Product.findByPk(e);
-      productArr.push(y);
-    });
-    console.log(productArr);
+    // const productArr = [];
+    // const x = orders.order_products.map(async (e) => {
+    //   const y = await Product.findByPk(e);
+    //   productArr.push(y);
+    // });
+    // console.log(productArr);
     res.status(200).json(orders);
   } catch (error) {
     next(new CustomError("Error fetching orders", 500));
